@@ -35,7 +35,7 @@ const stackItems = [
   {
     name: 'PHP',
     category: 'language',
-    level: 'familiar',
+    level: 'solid',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
   },
   {
@@ -53,7 +53,7 @@ const stackItems = [
   {
     name: 'Linux',
     category: 'os',
-    level: 'familiar',
+    level: 'solid',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
   },
   {
@@ -89,7 +89,7 @@ const stackItems = [
   {
     name: 'Python',
     category: 'language',
-    level: 'learning',
+    level: 'familiar',
     icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
   },
 ]
