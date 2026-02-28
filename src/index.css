@@ -21,6 +21,11 @@
     cursor: none;
   }
 
+  /* Restore cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body { cursor: auto; }
+  }
+
   /* Scanline overlay */
   body::before {
     content: '';
@@ -37,16 +42,9 @@
     z-index: 9998;
   }
 
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #050508;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #00ff88;
-    border-radius: 0;
-  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #050508; }
+  ::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 0; }
 
   ::selection {
     background: rgba(0, 255, 136, 0.3);
@@ -59,17 +57,17 @@
     color: transparent;
     -webkit-text-stroke: 1.5px #00ff88;
   }
-
-  .glow-accent {
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-
-  .glow-text {
-    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
-/* Cursor */
+/* Custom cursor — hidden on touch */
 .cursor-dot {
   width: 8px;
   height: 8px;
@@ -94,13 +92,13 @@
   transition: width 0.2s, height 0.2s, border-color 0.2s;
 }
 .cursor-dot.hover { transform: translate(-50%, -50%) scale(2.5); }
-.cursor-ring.hover {
-  width: 48px;
-  height: 48px;
-  border-color: #00ff88;
+.cursor-ring.hover { width: 48px; height: 48px; border-color: #00ff88; }
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
 }
 
-/* Terminal cursor blink */
+/* Terminal cursor */
 @keyframes termBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
@@ -137,30 +135,12 @@
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Grid bg */
-.grid-bg {
-  background-image:
-    linear-gradient(#151520 1px, transparent 1px),
-    linear-gradient(90deg, #151520 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
 /* Glitch */
 @keyframes glitch {
-  0%, 100% { text-shadow: none; clip-path: none; }
+  0%, 100% { text-shadow: none; }
   20% { text-shadow: 2px 0 #00ff88, -2px 0 #ff3366; }
   40% { text-shadow: -2px 0 #00d4ff; }
   60% { text-shadow: 2px 2px #ff3366; }
   80% { text-shadow: -1px 0 #00ff88; }
 }
-.glitch:hover {
-  animation: glitch 0.4s linear;
-}
-
-/* Section divider line */
-.section-line {
-  width: 40px;
-  height: 1px;
-  background: #00ff88;
-  display: inline-block;
-}
+.glitch:hover { animation: glitch 0.4s linear; }
