@@ -1,4 +1,4 @@
-import { ArrowRight, GithubLogo, ArrowSquareOut, GithubLogoIcon, ArrowSquareOutIcon } from '@phosphor-icons/react'
+import { ArrowSquareOutIcon, GithubLogoIcon, ArrowRightIcon } from '@phosphor-icons/react'
 import { projects } from '../data/content'
 import { useInView } from '../hooks/useInView'
 
@@ -143,7 +143,7 @@ export function Projects() {
                   data-hover
                   className="flex items-center gap-1 text-accent text-[11px] tracking-widest uppercase no-underline hover:gap-2 transition-all"
                 >
-                  Demo <ArrowRight size={12} />
+                  Demo <ArrowRightIcon size={12} />
                 </a>
                 <a
                   href={p.githubUrl}
@@ -152,7 +152,7 @@ export function Projects() {
                   data-hover
                   className="text-muted hover:text-txt transition-colors"
                 >
-                  <GithubLogo size={16} />
+                  <GithubLogoIcon size={16} />
                 </a>
               </div>
             </div>

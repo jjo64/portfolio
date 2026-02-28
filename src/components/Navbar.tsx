@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { navLinks, personal } from '../data/content'
+import { navLinks} from '../data/content'
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
